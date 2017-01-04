@@ -8,7 +8,7 @@
   <servlet>
     <servlet-name>dispatcherServlet</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-    <!-- 配置Spring mvc下的配置文件的名称和位置 -->
+    <!-- 配置Spring mvc下的配置文件的位置和名称 -->
     <init-param>
       <param-name>contextConfigLocation</param-name>
       <param-value>classpath:spring-mvc.xml</param-value>
