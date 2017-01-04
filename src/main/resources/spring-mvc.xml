@@ -5,14 +5,14 @@
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-      http://www.springframework.org/schema/tx
+      http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
       http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
- <!--   <mvc:annotation-driven />-->
+    <mvc:annotation-driven />
 
     <!-- 配置自动扫描的包 -->
-    <context:component-scan base-package="com.hjc.springMVC"></context:component-scan>
+    <context:component-scan base-package="com.hjc.springMVC" />
 
     <bean id="propertyConfigurer"
           class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -29,17 +29,17 @@
     <tx:annotation-driven transaction-manager="transactionManager" />
 
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
-        <property name="driverClass" value="${driver}" />
-        <property name="jdbcUrl" value="${url}" />
-        <property name="user" value="${username}" />
-        <property name="password" value="${password}" />
+        <property name="driverClass" value="${jdbc.driver}" />
+        <property name="jdbcUrl" value="${jdbc.url}" />
+        <property name="user" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
         <!-- c3p0连接池的私有属性 -->
-        <property name="maxPoolSize" value="${maxActive}" />
-        <property name="minPoolSize" value="${minActive}" />
+        <property name="maxPoolSize" value="${jdbc.maxActive}" />
+        <property name="minPoolSize" value="${jdbc.minActive}" />
         <!-- 关闭连接后不自动commit -->
         <property name="autoCommitOnClose" value="false" />
         <!-- 获取连接超时时间 -->
-        <property name="checkoutTimeout" value="${maxWait}" />
+        <property name="checkoutTimeout" value="${jdbc.maxWait}" />
         <!-- 当获取连接失败重试次数 -->
         <property name="acquireRetryAttempts" value="2" />
     </bean>
@@ -71,6 +71,6 @@
         <!-- 注入sqlSessionFactory -->
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
         <!-- 给出需要扫描Dao接口包 -->
-        <property name="basePackage" value="com.hjc.springMVC.dao"/>
+        <property name="basePackage" value="com.hjc.springMVC.persistence.dao"/>
     </bean>
 </beans>
