@@ -70,4 +70,8 @@ public class SysUser {
     public void setLocked(Boolean locked) {
         this.locked = locked;
     }
+
+    public String getCredentialsSalt(){
+        return getUsername() + getSalt();
+    }
 }

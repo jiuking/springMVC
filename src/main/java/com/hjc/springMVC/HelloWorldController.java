@@ -2,6 +2,7 @@ package com.hjc.springMVC;
 
 import com.hjc.springMVC.persistence.dao.SysUserMapper;
 import com.hjc.springMVC.persistence.entity.SysUser;
+import com.hjc.springMVC.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,12 +15,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HelloWorldController {
     final Logger logger = LoggerFactory.getLogger(HelloWorldController.class);
+
     @Autowired
-    private SysUserMapper sysUserMapper;
+    private UserService userService;
 
     @RequestMapping("/helloworld")
     public String hello(){
-        SysUser user = sysUserMapper.selectByPrimaryKey(1L);
+        SysUser user = new SysUser();
+        user.setUsername("张三");
+        user.setSalt("asdf123");
         logger.debug(user.getUsername());
         logger.info("Hello logback info");
         logger.error("debug");
