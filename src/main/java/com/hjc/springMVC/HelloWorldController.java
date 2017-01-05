@@ -19,7 +19,7 @@ public class HelloWorldController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/helloworld")
+    @RequestMapping("/login")
     public String hello(){
         SysUser user = new SysUser();
         user.setUsername("张三");
