@@ -39,7 +39,7 @@
             <tx:method name="save*" propagation="REQUIRED" rollback-for="Exception"/>
             <tx:method name="delete*" propagation="REQUIRED" rollback-for="Exception"/>
             <tx:method name="update*" propagation="REQUIRED" rollback-for="Exception"/>
-            <tx:method name="get*" read-only="true" />
+            <tx:method name="find*" read-only="true" />
         </tx:attributes>
     </tx:advice>
 
