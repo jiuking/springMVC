@@ -2,6 +2,7 @@ package com.hjc.springMVC.persistence.dao;
 
 
 import com.hjc.springMVC.persistence.entity.SysOrganization;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -22,5 +23,5 @@ public interface SysOrganizationMapper {
 
     List<SysOrganization> findAllWithExclude(SysOrganization excludeOrganization);
 
-    void updateMoveSourceDescendantsSql(String s, String s1, String s2);
+    void updateMoveSourceDescendantsSql(@Param("targetParentIds") String targetParentIds,@Param("sourceParentIds1") String sourceParentIds1,@Param("sourceParentIds2") String sourceParentIds2);
 }

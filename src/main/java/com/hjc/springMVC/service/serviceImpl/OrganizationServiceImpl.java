@@ -42,7 +42,6 @@ public class OrganizationServiceImpl implements OrganizationService{
     }
 
     /**
-     * @deprecated  暂时未实现
      * @param source
      * @param target
      */
