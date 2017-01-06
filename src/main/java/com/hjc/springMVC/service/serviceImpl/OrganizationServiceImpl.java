@@ -47,6 +47,11 @@ public class OrganizationServiceImpl implements OrganizationService{
      * @param target
      */
     public void move(SysOrganization source, SysOrganization target) {
-
+        SysOrganization organization = new SysOrganization();
+        organization.setId(source.getId());
+        organization.setParentId(target.getParentId());
+        organization.setParentIds(target.getParentIds());
+        organizationMapper.updateByPrimaryKeySelective(organization);
+        organizationMapper.updateMoveSourceDescendantsSql(target.makeSelfAsParentIds(), source.makeSelfAsParentIds(), source.makeSelfAsParentIds());
     }
 }

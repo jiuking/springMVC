@@ -21,4 +21,6 @@ public interface SysOrganizationMapper {
     List<SysOrganization> findAll();
 
     List<SysOrganization> findAllWithExclude(SysOrganization excludeOrganization);
+
+    void updateMoveSourceDescendantsSql(String s, String s1, String s2);
 }
