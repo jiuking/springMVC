@@ -21,7 +21,7 @@ public interface SysOrganizationMapper {
 
     List<SysOrganization> findAll();
 
-    List<SysOrganization> findAllWithExclude(SysOrganization excludeOrganization);
+    List<SysOrganization> findAllWithExclude(@Param("id")Long id,@Param("makeSelfAsParentIds")String makeSelfAsParentIds);
 
     void updateMoveSourceDescendantsSql(@Param("targetParentIds") String targetParentIds,@Param("sourceParentIds1") String sourceParentIds1,@Param("sourceParentIds2") String sourceParentIds2);
 }

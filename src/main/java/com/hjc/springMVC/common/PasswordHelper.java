@@ -15,10 +15,10 @@ import org.springframework.stereotype.Service;
 public class PasswordHelper {
     private RandomNumberGenerator randomNumberGenerator = new SecureRandomNumberGenerator();
 
-    @Value("${password.algorithmName}")
+//     @Value("${password.algorithmName}")
     private String algorithmName = "md5";
 
-    @Value("${password.hashIterations")
+//    @Value("${password.hashIterations")
     private int hashIterations = 2;
 
     public void setRandomNumberGenerator(RandomNumberGenerator randomNumberGenerator){

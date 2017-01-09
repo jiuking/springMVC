@@ -14,6 +14,6 @@ public interface OrganizationService {
 
     SysOrganization findOne(Long organizationId);
     List<SysOrganization> findAll();
-    Object findAllWithExclude(SysOrganization organization);
+    Object findAllWithExclude(Long id,String makeSelfAsParentIds);
     void move(SysOrganization source,SysOrganization target);
 }

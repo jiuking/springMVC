@@ -37,8 +37,9 @@ public class OrganizationServiceImpl implements OrganizationService{
         return organizationMapper.findAll();
     }
 
-    public Object findAllWithExclude(SysOrganization organization) {
-        return organizationMapper.findAllWithExclude(organization);
+    public Object findAllWithExclude(Long id,String makeSelfAsParentIds) {
+
+        return organizationMapper.findAllWithExclude(id,makeSelfAsParentIds);
     }
 
     /**

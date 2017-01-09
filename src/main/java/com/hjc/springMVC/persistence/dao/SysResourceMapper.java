@@ -20,5 +20,4 @@ public interface SysResourceMapper {
 
     List<SysResource> findAll();
 
-    Set<String> findPermissions(Set<Long> resourceIds);
 }

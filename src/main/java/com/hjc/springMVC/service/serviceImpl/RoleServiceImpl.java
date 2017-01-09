@@ -3,6 +3,7 @@ package com.hjc.springMVC.service.serviceImpl;
 import com.hjc.springMVC.persistence.dao.SysResourceMapper;
 import com.hjc.springMVC.persistence.dao.SysRoleMapper;
 import com.hjc.springMVC.persistence.entity.SysRole;
+import com.hjc.springMVC.service.ResourceService;
 import com.hjc.springMVC.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,7 +22,7 @@ public class RoleServiceImpl implements RoleService{
     private SysRoleMapper roleMapper;
 
     @Autowired
-    private SysResourceMapper resourceMapper;
+    private ResourceService resourceService;
 
     public int saveRole(SysRole role) {
         return roleMapper.insertSelective(role);
@@ -62,6 +63,6 @@ public class RoleServiceImpl implements RoleService{
                 resourceIds.addAll(role.getResourceIdsList());
             }
         }
-        return resourceMapper.findPermissions(resourceIds);
+        return resourceService.findPermissions(resourceIds);
     }
 }
